@@ -37,9 +37,14 @@ jobs:
   deploy:
     name: Deploy App
     runs-on: ubuntu-latest
+
+    # ci mean ci finish first
     needs: ci
+
+    # github.ref == 'refs/heads/main'
+    # This checks which branch
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
 
     steps:
       - name: Deploy placeholder
-        run: echo "Deploy your app here"
+        run: echo "Sample deploy script here"
